@@ -1,6 +1,6 @@
 # Projeto Sensor Ultrassonico Inteligente
 
-
+![Esquema eletrico](./img/Teste.png) 
 
 # Configuração do Holding Register
 | Endereço  | Descrição  | R/W  | 
