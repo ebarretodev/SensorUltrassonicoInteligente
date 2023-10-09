@@ -43,20 +43,20 @@ void setup()
 void loop() 
 {
   modbus.poll();
-  holdingRegister[0] = 0;
-  holdingRegister[1] = 39800;
-  // holdingRegister[2] = ;
-  // holdingRegister[3] = ;
-  // holdingRegister[4] = ;
-  // holdingRegister[5] = ;
-  // holdingRegister[6] = ;
-  // holdingRegister[7] = ;
-  // holdingRegister[8] = ;
-  // holdingRegister[9] = ;
-  holdingRegister[10] = readUltrassonicDistance(int PinoTrigger, int PinoEcho);
-  holdingRegister[11] = 0.01723 * readUltrassonicDistance(TriggerPin, EchoPin);
-  // holdingRegister[12] = ;
-  holdingRegister[13] = (holdingRegister[11] - holdingRegister[6])*100/(holdingRegister[7] - holdingRegister[6]);
+  holdingRegister[0] = 0; //Endereço do mestre
+  holdingRegister[1] = 39800; //Baud rate
+  //holdingRegister[2] = 
+  holdingRegister[3] = (holdingRegister[6]/holdingRegister[4]); //Litros/cm
+  holdingRegister[4] = (3,1415*((holdingRegister[8]/2)**2)*holdingRegister[6]); ; //Total em Litros
+  holdingRegister[5] = "Valor medido em cm: "+holdingRegister[11]+"Endereço mestre: "+holdingRegister[0]+"Baud rate: "+holdingRegister[1]; //Mostrar no display
+  holdingRegister[6] = (); //Nível máx cm
+  holdingRegister[7] = (); //Nível mín cm
+  holdingRegister[8] = (); //Circuferência Reservatório
+  //holdingRegister[9] = (); 
+  holdingRegister[10] = readUltrassonicDistance(int PinoTrigger, int PinoEcho); //Valor medido pelo sensor
+  holdingRegister[11] = 0.01723 * readUltrassonicDistance(TriggerPin, EchoPin); //Valor medido em cm
+  holdingRegister[12] = ((holdingRegister[8]-holdingRegister[11])*holdingRegister[3]); //Valor medido em litros
+  holdingRegister[13] = (holdingRegister[11] - holdingRegister[6])*100/(holdingRegister[7] - holdingRegister[6]);//Valor medido em %
   // holdingRegister[14] = ;
   // holdingRegister[15] = ;
   // holdingRegister[16] = ;
